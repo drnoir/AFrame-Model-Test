@@ -11,25 +11,25 @@
 <!--assets ref - GLB model-->
     <a-assets>
         <a-asset-item id="scene" src="assets/screens.glb"></a-asset-item>
-        <a-asset-item id="cubes" src="assets/cubes.glb"></a-asset-item>
+        <a-asset-item id="cubes" src="assets/rubix.glb"></a-asset-item>
         <audio id="music" src="assets/music.mp3" preload="auto"></audio>
     </a-assets>
 <!--    cam-->
     <a-entity camera look-controls  position="0 0 -15" ></a-entity>
 <!--    main model with associated animation-->
     <a-entity
-            model-opacity="1"
             position="0 0 5"
             sound="src: #music;  autoplay: true; volume:1.5; positional:false; loop: true;"
             gltf-model="#cubes"
-              scale="80 80 80"
+              scale="15 15 15"
               animation-mixer
-              animation="property: rotation; to: 180 360 0; loop: true; dur: 15000"
-              animation__2="property: position; to: -360 0 -360; dur: 15000; easing: linear; loop: true"
+              animation="property: rotation; to: 360 360 0; loop: true; dur: 15000"
+              animation__2="property: position; to: -500 0 -360; dur: 15000; easing: linear; loop: true"
     ></a-entity>
 <!--lights-->
-    <a-entity light="type: spot; angle: 45; color:red; intensity:0.6; decay:0.5; " animation="property: rotation; to: 0 360 0; loop: true; dur: 5000" ></a-entity>
-    <a-entity light="type: spot; angle: 45; color:white " animation="property: rotation; to: 0 360 0; loop: true; dur: 2000" ></a-entity>
+    <a-entity light="type: directional; color: #FFF; intensity: 0.5" position="-1 1 0"></a-entity>
+    <a-entity light="type: spot; angle: 320; color:red; intensity:0.8; decay:0.5; " animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" ></a-entity>
+    <a-entity light="type: spot; angle:320; color:white " animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" ></a-entity>
 </a-scene>
 </body>
 </html>
