@@ -1,18 +1,15 @@
-AFRAME.registerComponent('model-opacity', {
-    schema: {default: 1.0},
+AFRAME.registerComponent('modify-materials', {
     init: function () {
-        this.el.addEventListener('model-loaded', this.update.bind(this));
-    },
-    update: function () {
-        var mesh = this.el.getObject3D('mesh');
-        var data = this.data;
-        if (!mesh) { return; }
-        mesh.traverse(function (node) {
-            if (node.isMesh) {
-                node.material.opacity = data;
-                node.material.transparent = data < 1.0;
-                node.material.needsUpdate = true;
-            }
+        // Wait for model to load.
+        this.el.addEventListener('model-loaded', () => {
+            // Grab the mesh / scene.
+            const obj = this.el.getObject3D('mesh');
+            // Go over the submeshes and modify materials we want.
+            obj.traverse(node => {
+                if (node.name.indexOf('ship') !== -1) {
+                    node.material.color.set('red');
+                }
+            });
         });
     }
 });
