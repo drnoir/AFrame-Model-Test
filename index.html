@@ -11,6 +11,7 @@
 <!--assets ref - GLB model-->
     <a-assets>
         <a-asset-item id="scene" src="assets/screens.glb"></a-asset-item>
+        <a-asset-item id="cubes" src="assets/cubes.glb"></a-asset-item>
         <audio id="music" src="assets/music.mp3" preload="auto"></audio>
     </a-assets>
 <!--    cam-->
@@ -19,12 +20,12 @@
     <a-entity
             model-opacity="1"
             position="0 0 5"
-            sound="src: #music;  autoplay: true; volume:1.5; positional:false;"
-            gltf-model="#scene"
-              scale="4 4 4"
+            sound="src: #music;  autoplay: true; volume:1.5; positional:false; loop: true;"
+            gltf-model="#cubes"
+              scale="50 50 50"
               animation-mixer
-              animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"
-              animation__2="property: position; to: 360 0 220; dur: 20000; easing: linear; loop: true"
+              animation="property: rotation; to: 180 360 0; loop: true; dur: 15000"
+              animation__2="property: position; to: 360 0 360; dur: 15000; easing: linear; loop: true"
     ></a-entity>
 <!--lights-->
     <a-entity light="type: spot; angle: 45; color:red; intensity:0.6; decay:0.5; " animation="property: rotation; to: 0 360 0; loop: true; dur: 5000" ></a-entity>
